@@ -1,0 +1,35 @@
+Backend/node_modules/
+Backend/dist/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+dueling-front-end/node_modules
+dueling-front-end/.pnp
+dueling-front-end/.pnp.js
+
+# testing
+dueling-front-end/coverage
+
+# next.js
+dueling-front-end/.next/
+dueling-front-end/out/
+
+# production
+dueling-front-end/build
+
+# misc
+dueling-front-end/.DS_Store
+dueling-front-end/*.pem
+
+# debug
+/dueling-front-end/npm-debug.log*
+/dueling-front-end/yarn-debug.log*
+/dueling-front-end/yarn-error.log*
+/dueling-front-end/.pnpm-debug.log*
+/dueling-front-end/db.json
+# local env files
+/dueling-front-end/.env*.local
+
+# vercel
+/dueling-front-end/.vercel
