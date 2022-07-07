@@ -1,4 +1,0 @@
-{
-  "duelists": [{ "id": 1 , "name" : "utk" }, {"id":2 , "name" :  "utk2"}],
-  "problems":[{"contestId":4,"index": "A", "name" : "Watermelon"},{"contestId":1324,"index": "F","name":"Maximum White Subtree"}]
-}
