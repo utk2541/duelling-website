@@ -1,5 +1,7 @@
 import { DataSource } from "typeorm";
 import { allProblems } from "./entities/allProblems";
+import { duelists } from "./entities/duelists";
+import { duels } from "./entities/duels";
 export const Data = new DataSource({
   type: "postgres",
   ssl: {
@@ -10,5 +12,5 @@ export const Data = new DataSource({
   database: "dueling",
   synchronize: true,
   logging: true,
-  entities: [allProblems],
+  entities: [allProblems,duels,duelists],
 });

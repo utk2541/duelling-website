@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 html,
 body {
   padding: 0;
@@ -13,4 +14,55 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.regform{
+  border-radius: 20px;
+  width: 40vw;
+
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inconsolata";
+  height: 50vh;
+  margin-left: 30vw;
+  padding-top: 6vh;
+  background-color: #B3541E ;
+  justify-content: flex-start;
+} 
+.headingreg{
+  text-align: center;
+
+  color: white;
+}
+.regform input{
+  width: 30%;
+  height: 40px;
+  font-size: 30px;
+  color:white;
+  border-color: #A13333;
+  background-color: #A13333;
+  border-width: 0;
+  border-radius: 5px;
+  margin: 5%;
+  align-self: center;
+}
+.regform input:focus{
+  border-color: black;
+  font-family: "Inconsolata" ;
+  border-style: solid;
+  border-width: 0;
+}
+.regform button{
+  width: 20%;
+  height: 15%;
+  background-color: #461111;
+  color: white;
+  font-family: "Inconsolata" ;
+  border-radius: 5px;
+  border-style: none;
+  align-self: center;
+}
+.regform button:hover{
+  background-color: white;
+  color: #461111;
 }

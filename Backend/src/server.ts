@@ -1,15 +1,18 @@
 import "reflect-metadata";
 import express from "express";
-import { GetAllProblems } from "./helperfunctions/api_helper";
+import { cfapi } from "./helperfunctions/api_helper";
 import { updateProblems } from "./helperfunctions/updateProblems";
 import { Data } from "./Data";
+import cors from "cors"
+import { createDuelist } from "./helperfunctions/createDuelist";
 const main = async () => {
   const app = express();
   const url = "https://codeforces.com/api/problemset.problems";
   Data.initialize().then().catch((err)=>{console.log(err)})
-
+  app.use(express.json());
+  app.use(cors());
   // getting problems from cf
-  const response = await GetAllProblems(url)
+  const response = await cfapi(url)
     .then((res) => {
       return res;
     })
@@ -20,6 +23,11 @@ const main = async () => {
     
     setInterval(updateProblems,86400000,problems);
 
+    app.post('/createDuelist',async (req,res)=>{
+      const cfId = req.body.cfId;
+      const response = await createDuelist(cfId);
+      res.send({message : response.message})
+    })
 
 
   const port = 4000;
