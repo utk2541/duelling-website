@@ -1,11 +1,11 @@
 import Router from "next/router";
-
+import { constants } from "../constants";
 const register = () => {
   const Submit = async (e) => {
     e.preventDefault();
     const data = { cfId: e.target.cfId.value };
     const JSONdata = JSON.stringify(data);
-    const endpoint = "http://localhost:4000/createDuelist";
+    const endpoint = constants .url + "/createDuelist";
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },

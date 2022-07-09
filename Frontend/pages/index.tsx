@@ -1,3 +1,4 @@
+import { constants } from "../constants";
 import Link from "next/link";
 import Router from "next/router";
 export default function Home() {
@@ -5,7 +6,7 @@ export default function Home() {
     e.preventDefault();
     const data = { cfId: e.target.loginid.value };
     const JSONdata = JSON.stringify(data);
-    const endpoint = "http://localhost:4000/login/" + data.cfId;
+    const endpoint = constants.url + "/login/" + data.cfId;
     const options = {
       method: "GET",
     };

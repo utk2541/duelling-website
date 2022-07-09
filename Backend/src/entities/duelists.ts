@@ -14,5 +14,7 @@ export class duelists{
   @Column("integer")
   cfRating: number;
 
+  @Column()
+  pfp: string;
 
 }

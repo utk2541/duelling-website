@@ -12,13 +12,14 @@ export const createDuelist = async (cfId: string) => {
     const [duelistsintable, duelistcount] =
       await duelistsRepository.findAndCount({ where: { cfhandle: cfId } });
       
-    if (duelistcount != 0) return { message: "User already exists" , status: "NO" };
+    if (duelistcount != 0) return { message: "User already exists" , status: "YES" };
     else {
       const duelist = new duelists();
       if(response.result[0].rating == null) 
       duelist.cfRating = 0;
       else
       duelist.cfRating = response.result[0].rating;
+      duelist.pfp=response.result[0].titlePhoto;
       duelist.cfhandle = cfId;
       duelist.duelRating = 1500;
       await duelistsRepository.save(duelist);
