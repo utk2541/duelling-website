@@ -47,10 +47,10 @@ a {
   align-self: center;
 }
 .regform input:focus{
-  border-color: black;
+  outline: none;
   font-family: "Inconsolata" ;
-  border-style: solid;
-  border-width: 0;
+  
+  
 }
 .regform button{
   width: 20%;
