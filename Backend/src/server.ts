@@ -5,6 +5,7 @@ import { updateProblems } from "./helperfunctions/updateProblems";
 import { Data } from "./Data";
 import cors from "cors"
 import { createDuelist } from "./helperfunctions/createDuelist";
+import {validatelogin} from "./helperfunctions/validatelogin";
 const main = async () => {
   const app = express();
   const url = "https://codeforces.com/api/problemset.problems";
@@ -26,6 +27,12 @@ const main = async () => {
     app.post('/createDuelist',async (req,res)=>{
       const cfId = req.body.cfId;
       const response = await createDuelist(cfId);
+      res.send({message : response.message , stat: response.status})
+    })
+
+    app.get('/login/:cfid', async (req,res)=>{
+      const cfId = req.params.cfid;
+      const response = await validatelogin(cfId);
       res.send({message : response.message})
     })
 
