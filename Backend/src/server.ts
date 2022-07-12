@@ -7,6 +7,7 @@ import cors from "cors";
 import { createDuelist } from "./helperfunctions/createDuelist";
 import { validatelogin } from "./helperfunctions/validatelogin";
 import { getprofile } from "./helperfunctions/getprofile";
+import { createDuel } from "./helperfunctions/createDuel";
 const main = async () => {
   const app = express();
   const url = "https://codeforces.com/api/problemset.problems";
@@ -35,6 +36,13 @@ const main = async () => {
     res.send({ message: response.message, stat: response.status });
   });
 
+  app.post("/createDuel", async (req, res) => {
+    const Data = req.body.Data;
+    console.log(Data);
+    const response = await createDuel(Data);
+    res.send(response)
+  });
+
   app.get("/login/:cfid", async (req, res) => {
     const cfId = req.params.cfid;
     const response = await validatelogin(cfId);
@@ -47,6 +55,7 @@ const main = async () => {
     console.log(response.profile);
     res.send({ message: response.message, profile: response.profile });
   });
+
 
   const port = 4000;
   app.listen(port, () => {

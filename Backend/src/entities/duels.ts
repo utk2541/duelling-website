@@ -14,14 +14,17 @@ export class duels{
   @Column()
   status: string;
 
-  @Column("jsonb",{array:true})
-  problems: {contestId: string,index: string}[];
+  @Column("jsonb",{array:false})
+  problems: Array<{contestId: string,index: string,name: string}>;
 
   @Column("date")
+  startdate: Date;
+
+  @Column("time")
   starttime: Date;
 
-  @Column("date")
-  endtime: Date;
+  @Column("integer")
+  duration: number;
 
   @Column("integer",{default:0})
   PointsA: number;	

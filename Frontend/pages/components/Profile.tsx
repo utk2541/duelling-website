@@ -24,19 +24,13 @@ const Profile = (props: { cfId: string }) => {
   return Data !== undefined ? (
     <div className="container_p">
       <h1 className="header_p">
-        <div  
-          className="image_p">
-        <Image
-          loader={(src) => {
-            return Data.pfp;
-          }}
-          src={Data.pfp}
-          layout="fill"
-          objectFit="contain"
-         
-        />
+        <div className="image_p">
+          <Image src={Data.pfp} layout="fill" objectFit="contain" />
         </div>
-       <div id="pname"> <p>{Data.cfhandle}</p> </div>
+        <div id="pname">
+          {" "}
+          <p>{Data.cfhandle}</p>{" "}
+        </div>
       </h1>
       <div className="stats_p">
         <table>
