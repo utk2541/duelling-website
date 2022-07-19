@@ -1,9 +1,11 @@
 import { duelists } from "../entities/duelists";
 import { Data } from "../Data";
 import { cfapi } from "../helperfunctions/api_helper";
+import { constants } from "../constants";
 export const createDuelist = async (cfId: string) => {
+  const url = constants.url;
   const response = await cfapi(
-    `https://codeforces.com/api/user.info?handles=${cfId}`
+    `${url}/user.info?handles=${cfId}`
   );
   const duelistsRepository = Data.getRepository(duelists);
   if (response.status === "FAILED")

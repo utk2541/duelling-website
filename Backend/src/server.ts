@@ -1,16 +1,16 @@
 import "reflect-metadata";
 import express from "express";
-import { cfapi } from "./helperfunctions/api_helper";
-import { updateProblems } from "./helperfunctions/updateProblems";
+import { updateDB} from "./helperfunctions/updateDB";
 import { Data } from "./Data";
 import cors from "cors";
 import { createDuelist } from "./helperfunctions/createDuelist";
 import { validatelogin } from "./helperfunctions/validatelogin";
 import { getprofile } from "./helperfunctions/getprofile";
 import { createDuel } from "./helperfunctions/createDuel";
+import { getDuels } from "./helperfunctions/getDuels";
 const main = async () => {
   const app = express();
-  const url = "https://codeforces.com/api/problemset.problems";
+
   Data.initialize()
     .then()
     .catch((err) => {
@@ -18,17 +18,8 @@ const main = async () => {
     });
   app.use(express.json());
   app.use(cors());
-  // getting problems from cf
-  const response = await cfapi(url)
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  const problems = response ? response.result.problems : [];
-
-  setInterval(updateProblems, 86400000, problems);
+  
+  setInterval(updateDB, 86400000);
 
   app.post("/createDuelist", async (req, res) => {
     const cfId = req.body.cfId;
@@ -40,6 +31,7 @@ const main = async () => {
     const Data = req.body.Data;
     console.log(Data);
     const response = await createDuel(Data);
+    console.log(response)
     res.send(response)
   });
 
@@ -55,10 +47,17 @@ const main = async () => {
     console.log(response.profile);
     res.send({ message: response.message, profile: response.profile });
   });
+  app.get("/getduels/:cfid",async (req,res)=>{
+    const cfId = req.params.cfid;
+    console.log(cfId);
+    const response = await getDuels(cfId);
+    res.send({duels:response.duels})
+  });
 
 
   const port = 4000;
   app.listen(port, () => {
+    updateDB();
     console.log("hmmmm");
   });
 };

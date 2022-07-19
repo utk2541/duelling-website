@@ -4,7 +4,7 @@ import { allProblems } from "../entities/allProblems";
 import { Between } from "typeorm";
 import { cfapi } from "./api_helper";
 import { duels } from "../entities/duels";
-
+import {constants} from "../constants"
 interface dproblem {
   contestId: string, index: string, name: string
 };
@@ -16,6 +16,7 @@ const findproblems = async ({
   duelistB,
 }) => {
   const problemsrepo = Data.getRepository(allProblems);
+  const url = constants.url;
   const [problems, dontcare] = await problemsrepo.findAndCount({
     where: { rating: Between(rmin, rmax) },
   });
@@ -29,10 +30,10 @@ const findproblems = async ({
   let finalproblems = { status: "OK", problems: [] };
 
   const fetchA = await cfapi(
-    `https://codeforces.com/api/user.status?handle=${duelistA}`
+    `${url}/user.status?handle=${duelistA}`
   );
   const fetchB = await cfapi(
-    `https://codeforces.com/api/user.status?handle=${duelistB}`
+    `${url}/user.status?handle=${duelistB}`
   );
 
   let doneprobsA: Array<any>,
@@ -106,7 +107,8 @@ export const createDuel = async (data) => {
     duel.problems = response.problems;
     duel.status = "PENDING";
     duel.winner = "n/a";
-
+    duel.maxRating=data.rmax;
+    duel.minRating=data.rmin;
     await duelrepo.save(duel);
     return { status: "Duel created" }
   }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { constants } from "../../constants";
 import Image from "next/image";
+import Stats from "./Stats";
+import Duellist from "./Duellist";
 const Profile = (props: { cfId: string }) => {
   const cfId = props.cfId;
   const url = constants.url;
@@ -12,10 +14,14 @@ const Profile = (props: { cfId: string }) => {
     pfp: "https://cdn-userpic.codeforces.com/no-avatar.jpg",
   });
   const [datafetched, setdatafetched] = useState(false);
+  const [stats, setStats] = useState(true);
+  const [duellist, setDuellist] = useState(false);
   useEffect(() => {
     const fetchdata = async (url: string) => {
       const profile = await fetch(url + `/getprofile/${cfId}`);
+    
       const result = await profile.json();
+
       setdatafetched(true);
       setData(result.profile);
     };
@@ -32,20 +38,26 @@ const Profile = (props: { cfId: string }) => {
           <p>{Data.cfhandle}</p>{" "}
         </div>
       </h1>
-      <div className="stats_p">
-        <table>
-          <tbody>
-            <tr>
-              <td>Duel rating</td>
-              <td>{Data.duelRating}</td>
-            </tr>
-            <tr>
-              <td>Codeforces rating</td>
-              <td>{Data.cfRating}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="options">
+        <button
+          onClick={() => {
+            setStats(true);
+            setDuellist(false);
+          }}
+        >
+          Stats
+        </button>
+        <button
+          onClick={() => {
+            setStats(false);
+            setDuellist(true);
+          }}
+        >
+          Duels
+        </button>
       </div>
+      {stats && <Stats Data={Data} />}
+      {duellist && <Duellist Data={Data} cfId = {cfId}/>}
     </div>
   ) : (
     <div></div>

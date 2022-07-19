@@ -41,5 +41,11 @@ export class duels{
   @Column()
   delB: number;
 
+  @Column()
+  minRating: number;
+
+  @Column()
+  maxRating: number;
+
 
 }
