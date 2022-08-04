@@ -9,7 +9,7 @@ const Duelitem = (props) => {
   const accept = async () => {
     const endpoint = constants .url + "/accept";
     console.log(endpoint);
-    const jsonD = { duelid : data.id};
+    const jsonD = { duelid : data?.id};
     const JSONData = JSON.stringify(jsonD);
     const options = {
       method: "POST",
@@ -26,30 +26,30 @@ const Duelitem = (props) => {
   }
   const button = (status) => {
     if (status === "PENDING") {
-      if (cfId == data.duelistB)
+      if (cfId == data?.duelistB)
         return <button onClick={accept}>Accept</button>;
       else return "pls wait";
     } else if (status === "ACCEPTED")
 
-      return <Link href={`/arena/${data.id}`}> View </Link>
+      return <Link href={`/arena/${data?.id}`}> View </Link>
   };
   return (
     <div className="duelitem">
       <div className="dueldata">
         <div className="duelcont">
-          {data.duelistA === cfId ? "Opponent:" : "Challenger:"}{" "}
-          {data.duelistA === cfId ? data.duelistB : data.duelistA}
+          {data?.duelistA === cfId ? "Opponent:" : "Challenger:"}{" "}
+          {data?.duelistA === cfId ? data?.duelistB : data?.duelistA}
         </div>
         <div className="duelcont">
-          Total no. of Problems: {data.problems.length}
+          Total no. of Problems: {data?.problems.length}
         </div>
         <div className="duelcont">
-          Rating: {data.minRating + "-" + data.maxRating}
+          Rating: {data?.minRating + "-" + data?.maxRating}
         </div>
 
       </div>
 
-      <div className="duelbut">{button(data.status)}</div>
+      <div className="duelbut">{button(data?.status)}</div>
     </div>
   );
 };

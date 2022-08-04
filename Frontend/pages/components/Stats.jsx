@@ -7,7 +7,7 @@ const Stats = (props) => {
            
             <tr>
               <td>Codeforces rating</td>
-              <td>{Data.cfRating}</td>
+              <td>{Data?.cfRating}</td>
             </tr>
           </tbody>
         </table>

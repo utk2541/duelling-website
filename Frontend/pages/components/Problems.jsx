@@ -9,7 +9,7 @@ const Problems = (props) => {
         <p>Problems</p>
       </div>
       <div className="problem_list">
-        {problems.map((element)=>{ return <div className="problem"><a href={url+element.contestId+"/"+element.index} >{element.name}</a></div>})}
+        {problems?.map((element)=>{ return <div className="problem"><a href={url+element.contestId+"/"+element.index} >{element.name}</a></div>})}
       </div>
     </div>
   );

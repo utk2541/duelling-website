@@ -23,7 +23,7 @@ const arena = () => {
 
     const response = await fetch(endpoint, options);
     const result = await response.json();
-      
+    
       setdatafetched(true);
      setData(result.problems);
       
