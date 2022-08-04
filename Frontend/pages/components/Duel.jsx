@@ -3,16 +3,10 @@ import { useRef } from "react";
 
 const Duel = (props) => {
   const form = useRef(null);
-  interface Datatype1 {
-    duelistA: string;
-    duelistB: string;
-    rmin: number;
-    rmax: number;
-    numofproblem: number;
-  }
+  
   const Submit = async (e) => {
     e.preventDefault();
-    const Data: Datatype1 = {
+    const Data = {
       duelistA: props.challenger,
       duelistB: e.target.cfId.value,
       rmin: e.target.rmin.value,

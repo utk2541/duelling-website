@@ -3,7 +3,7 @@ import { constants } from "../../constants";
 import Image from "next/image";
 import Stats from "./Stats";
 import Duellist from "./Duellist";
-const Profile = (props: { cfId: string }) => {
+const Profile = (props) => {
   const cfId = props.cfId;
   const url = constants.url;
   const [Data, setData] = useState({
@@ -17,7 +17,7 @@ const Profile = (props: { cfId: string }) => {
   const [stats, setStats] = useState(true);
   const [duellist, setDuellist] = useState(false);
   useEffect(() => {
-    const fetchdata = async (url: string) => {
+    const fetchdata = async (url) => {
       const profile = await fetch(url + `/getprofile/${cfId}`);
     
       const result = await profile.json();

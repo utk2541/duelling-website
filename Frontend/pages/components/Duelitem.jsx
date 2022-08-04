@@ -24,7 +24,7 @@ const Duelitem = (props) => {
   const view = () => {
     
   }
-  const button = (status: string) => {
+  const button = (status) => {
     if (status === "PENDING") {
       if (cfId == data.duelistB)
         return <button onClick={accept}>Accept</button>;

@@ -10,7 +10,7 @@ const Duellist = (props) => {
   const [fetched, setFetched] = useState(false);
   useEffect(() => {
 
-    const getduels = async (url: string) => {
+    const getduels = async (url) => {
       const response = await fetch(url + `/getduels/${Data.cfhandle}`);
       const result = await response.json();
       setData(result.duels);
