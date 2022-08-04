@@ -8,9 +8,6 @@ const Duel = (props) => {
     duelistB: string;
     rmin: number;
     rmax: number;
-    startdate: string;
-    starttime: string;
-    duration: number;
     numofproblem: number;
   }
   const Submit = async (e) => {
@@ -20,9 +17,6 @@ const Duel = (props) => {
       duelistB: e.target.cfId.value,
       rmin: e.target.rmin.value,
       rmax: e.target.rmax.value,
-      startdate: e.target.date.value,
-      starttime: e.target.starttime.value,
-      duration: e.target.dur.value,
       numofproblem: e.target.pno.value,
     };
     const Send = JSON.stringify({ Data });
@@ -101,35 +95,7 @@ const Duel = (props) => {
           defaultValue={"800"}
         />
       </div>
-      <div className="duelrow">
-        <label htmlFor="date" className="duel">
-          {"Date : "}
-        </label>
-        <input type="date" id="date" name="date" required className="duel" />
-      </div>
-      <div className="duelrow">
-        <label htmlFor="starttime" className="duel">
-          {"Start time : "}
-        </label>
-        <input
-          type="time"
-          id="starttime"
-          name="starttime"
-          required
-          className="duel"
-        />
-        <label htmlFor="dur" className="duel">
-          {"duration(in mins) : "}
-        </label>
-        <input
-          type="number"
-          id="dur"
-          name="dur"
-          required
-          className="duel"
-          min="5"
-        />
-      </div>
+      
       <button type="submit" className="duel">
         Submit
       </button>

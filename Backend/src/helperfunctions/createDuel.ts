@@ -95,18 +95,13 @@ export const createDuel = async (data) => {
   if (response.status == "OK") {
     const duelrepo = Data.getRepository(duels);
     const duel = new duels;
-    duel.PointsA = 0;
-    duel.PointsB = 0;
-    duel.delA = 0;
-    duel.delB = 0;
+   
     duel.duelistA = data.duelistA;
     duel.duelistB = duelistB;
-    duel.duration = data.duration;
-    duel.startdate = data.startdate;
-    duel.starttime = data.starttime;
+   
     duel.problems = response.problems;
     duel.status = "PENDING";
-    duel.winner = "n/a";
+  
     duel.maxRating=data.rmax;
     duel.minRating=data.rmin;
     await duelrepo.save(duel);

@@ -5,5 +5,8 @@ export const getDuels = async (cfId: string) => {
   const [duellist, dontcare] = await duelrepo.findAndCount({
     where: [{ duelistA: cfId }, { duelistB: cfId }],
   });
-  return { duels: duellist };
+  
+    return { duels: duellist };
+  
+\
 };

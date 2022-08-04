@@ -15,7 +15,7 @@ const register = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
     alert(result.message);
-    console.log(result);
+   
     if(result.stat== "YES") Router.back()
     
   };

@@ -222,7 +222,7 @@ div.duelrow {
   display: flex;
   font-size: 120%;
 }
-.duelbut button {
+.duelbut a {
   width: 20%;
   font-size: 90%;
   padding: 1%;
@@ -231,8 +231,9 @@ div.duelrow {
   font-family: "Inconsolata";
   border-radius: 2px;
   border-style: none;
+  text-align: center;
 }
-.duelbut button:hover {
+.duelbut a:hover {
   background-color: white;
   color: #461111;
 }

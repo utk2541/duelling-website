@@ -8,6 +8,8 @@ import { validatelogin } from "./helperfunctions/validatelogin";
 import { getprofile } from "./helperfunctions/getprofile";
 import { createDuel } from "./helperfunctions/createDuel";
 import { getDuels } from "./helperfunctions/getDuels";
+import { acceptDuel } from "./helperfunctions/acceptDuel";
+import { viewDuel } from "./helperfunctions/viewDuel";
 const main = async () => {
   const app = express();
 
@@ -29,12 +31,26 @@ const main = async () => {
 
   app.post("/createDuel", async (req, res) => {
     const Data = req.body.Data;
-    console.log(Data);
+ 
     const response = await createDuel(Data);
-    console.log(response)
+
     res.send(response)
   });
 
+  app.post("/accept",async (req,res)=>{
+    console.log("why");
+    const duelid = req.body.duelid;
+    console.log(duelid);
+    const response = await acceptDuel(duelid);
+    res.send("OK");
+  });
+  app.post("/view",async (req,res)=>{
+   
+    const duelid = req.body.duelid;
+    console.log(duelid);
+    const response = await viewDuel(duelid);
+    res.send(response);
+  });
   app.get("/login/:cfid", async (req, res) => {
     const cfId = req.params.cfid;
     const response = await validatelogin(cfId);
@@ -54,6 +70,7 @@ const main = async () => {
     res.send({duels:response.duels})
   });
 
+ 
 
   const port = 4000;
   app.listen(port, () => {
