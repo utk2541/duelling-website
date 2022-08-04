@@ -7,7 +7,7 @@ const profile = () => {
 
   return (
     <div className="page_a">
-      <Profile cfId={profile} /> <Duel challenger={profile} />
+      <Profile cfId={profile as string} /> <Duel challenger={profile} />
     </div>
   );
 };
