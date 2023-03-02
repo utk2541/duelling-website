@@ -11,7 +11,7 @@ export const createDuelist = async (cfId: string) => {
   if (response.status === "FAILED")
     return { message: "Codeforces handle doesn't exist" ,status : "NO"};
   if (response.status === "OK") {
-    const [duelistsintable, duelistcount] =
+    const [_, duelistcount] =
       await duelistsRepository.findAndCount({ where: { cfhandle: cfId } });
       
     if (duelistcount != 0) return { message: "User already exists" , status: "YES" };
