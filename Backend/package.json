@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w",
-    "test": "nodemon dist/server.js"
+    "test": "nodemon dist/server.js",
+    "build" : "npm install\n yarn add" 
   },
   "author": "",
   "license": "ISC",
