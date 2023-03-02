@@ -5,7 +5,7 @@
   "scripts": {
     "watch": "tsc -w",
     "test": "nodemon dist/server.js",
-    "build" : "npm install\n yarn add" 
+    "build": "npm install\n yarn install"
   },
   "author": "",
   "license": "ISC",
