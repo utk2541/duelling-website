@@ -170,7 +170,7 @@ const main = async () => {
     });
   });
 
-  const port = process.env.PORT || 4000;
+  const port = 4000;
   server.listen(port, () => {
     updateDB();
     console.log("hmmmm");

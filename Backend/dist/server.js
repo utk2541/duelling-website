@@ -155,7 +155,7 @@ const main = async () => {
             console.log("disconnected");
         });
     });
-    const port = process.env.PORT || 4000;
+    const port = 4000;
     server.listen(port, () => {
         (0, updateDB_1.updateDB)();
         console.log("hmmmm");
