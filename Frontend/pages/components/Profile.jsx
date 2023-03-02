@@ -1,33 +1,13 @@
-import { useEffect, useState } from "react";
-import { constants } from "../../constants";
+import { useState } from "react";
 import Image from "next/image";
 import Stats from "./Stats";
 import Duellist from "./Duellist";
 const Profile = (props) => {
-  const cfId = props.cfId;
-  const url = constants.url;
-  const [Data, setData] = useState({
-    duelRating: 1500,
-    id: 1,
-    cfhandle: "none",
-    cfRating: 0,
-    pfp: "https://cdn-userpic.codeforces.com/no-avatar.jpg",
-  });
-  const [datafetched, setdatafetched] = useState(false);
   const [stats, setStats] = useState(true);
   const [duellist, setDuellist] = useState(false);
-  useEffect(() => {
-    const fetchdata = async (url) => {
-      const profile = await fetch(url + `/getprofile/${cfId}`);
-    
-      const result = await profile.json();
-
-      setdatafetched(true);
-      setData(result.profile);
-    };
-    if (!datafetched) fetchdata(url);
-  });
-  return Data !== undefined ? (
+  const socket = props.socket;
+  const Data = props.Data;
+  return (
     <div className="container_p">
       <h1 className="header_p">
         <div className="image_p">
@@ -57,10 +37,8 @@ const Profile = (props) => {
         </button>
       </div>
       {stats && <Stats Data={Data} />}
-      {duellist && <Duellist Data={Data} cfId = {cfId}/>}
+      {duellist && <Duellist Data={Data} cfId={Data.cfhandle} socket = {socket}/>}
     </div>
-  ) : (
-    <div></div>
   );
 };
 

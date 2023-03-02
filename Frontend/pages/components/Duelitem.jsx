@@ -3,12 +3,13 @@ import Router from "next/router";
 import path from "path";
 import { constants } from "../../constants";
 const Duelitem = (props) => {
-  const data = props.data;
+  const data = props?.data;
   const cfId = props.cfId;
-  console.log(data, cfId);
+  const socket = props.socket;
+  
   const accept = async () => {
     const endpoint = constants .url + "/accept";
-    console.log(endpoint);
+    
     const jsonD = { duelid : data?.id};
     const JSONData = JSON.stringify(jsonD);
     const options = {
@@ -18,8 +19,8 @@ const Duelitem = (props) => {
     };
 
     const response = await fetch(endpoint, options);
-    console.log(response);
-
+    socket.emit('duelList',data?.duelistA);
+    
   }
   const view = () => {
     
@@ -31,7 +32,7 @@ const Duelitem = (props) => {
       else return "pls wait";
     } else if (status === "ACCEPTED")
 
-      return <Link href={`/arena/${data?.id}`}> View </Link>
+      return <Link href={`/arena/${cfId}/${data?.id}`}> View </Link>
   };
   return (
     <div className="duelitem">

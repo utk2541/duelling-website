@@ -10,8 +10,8 @@ export const updateDB = async () => {
     resProb && resProb.status == "OK" ? resProb.result.problems : [];
 
   if (problems != []) {
-    let finalproblems: allProblems[] = [];
-    problems.forEach((element) => {
+    let finalproblems: Array<allProblems> = new Array<allProblems>();
+    problems.forEach((element : any) => {
       const problem = new allProblems();
       problem.contestId = element.contestId;
       problem.index = element.index;
@@ -28,7 +28,7 @@ export const updateDB = async () => {
   const duelistrepo = Data.getRepository(duelists);
 
   const duelist = await duelistrepo.find();
-  let newProf: duelists[] = [];
+
   duelist.forEach(async (element) => {
     const resProf = await cfapi(`${url}/user.info?handles=${element.cfhandle}`);
     let prof = element;

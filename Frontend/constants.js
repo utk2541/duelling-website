@@ -1,3 +1,3 @@
 export const constants = {
-    url : "https://duelingbackend.herokuapp.com"
+    url : "http://localhost:4000"
 }

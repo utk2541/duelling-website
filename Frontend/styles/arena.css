@@ -1,62 +1,65 @@
-.page_a{
-    background-color:#040303;
-     width:100vw;
-      height:100vh;
-      display: flex;
-    
+.page_a {
+  background-color: #040303;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
-.container_a{
-    border-radius: 20px;
-    display: flex;
-    width: 80vw;
-    height: 60vh;
-    margin-left: 10vw;
-    margin-top: 15vh;
-    justify-content: center;
-    padding-top: 6vh;
-    background-color: #B3541E ;
-}   
-.user{
-    border-radius: 20px;
-    width: 30%;
-    height: 90%;
-    background-color :#A13333;
-    padding : 1.2vh;
-    
+.container_a {
+  border-radius: 20px;
+  display: flex;
+  width: 80vw;
+  height: 60vh;
+  margin-left: 10vw;
+  margin-top: 15vh;
+  justify-content: center;
+  padding-top: 6vh;
+  background-color: #b3541e;
 }
-.problems_a{
-    width:40vw;
-    border-radius: 20px;
-    margin-left: 30vw;
-    padding : 1vh;
-    height: 90%;
-    background-color:#A13333;
-    
+.user {
+  border-radius: 20px;
+  width: 30%;
+  height: 90%;
+  background-color: #a13333;
+  padding: 1.2vh;
 }
-.problem_list{
-    height: 80%;
-    overflow-y:scroll;
-    scrollbar-width:none;
+.problems_a {
+  width: 40vw;
+  border-radius: 20px;
+  margin-left: 30vw;
+  padding: 1vh;
+  height: 90%;
+  background-color: #a13333;
 }
-.problem{
-    height: 10%;
-    margin:10px;
+.problem_list {
+  height: 80%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  padding: 20px;
 }
-.header_u{
-    height:20%;
-    background-color: #c45050;
-    margin-top: 2%;
-    display: flex;
-    border-radius: 10px;
-    justify-content: center;
+.problem {
+  height: 10%;
+  margin: 10px;
 }
-.stats_u{
-    height: 70%;
-    margin-top: 3%;
-    border-radius: 5px;
-    background-color: #c45050;
+.header_u {
+  height: 20%;
+  background-color: #c45050;
+  margin-top: 2%;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+}
+.stats_u {
+  height: 70%;
+  margin-top: 3%;
+  border-radius: 5px;
+  background-color: #c45050;
 }
 .header_u p {
-    align-items: center;
-   
+  align-items: center;
 }
+.ProblemItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+}
+

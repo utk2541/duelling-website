@@ -1,9 +1,9 @@
-/** @type {import('next').NextConfig} */
+/* @type {import('next').NextConfig} */
 const nextConfig = {
   staticPageGenerationTimeout:0,
   reactStrictMode: true,
   images: {
-    domains: ['cdn-userpic.codeforces.com'],
+    domains: ['userpic.codeforces.org'],
     unoptimized: true,
   }
 }

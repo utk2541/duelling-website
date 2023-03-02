@@ -1,11 +1,13 @@
 import { constants } from "../../constants";
-import { useRef } from "react";
+import { useRef ,useState} from "react";
 
 const Duel = (props) => {
   const form = useRef(null);
-  
+  const [buttonV , setButton] = useState(true)
+  const socket = props.socket;
   const Submit = async (e) => {
     e.preventDefault();
+    setButton(false);
     const Data = {
       duelistA: props.challenger,
       duelistB: e.target.cfId.value,
@@ -24,7 +26,10 @@ const Duel = (props) => {
 
     const response = await fetch(endpoint, options);
     const message = await response.json();
+    socket.emit('duelList',Data?.duelistB);
+    setButton(true);
     alert(message.status);
+    
   };
   return (
     <form ref={form} onSubmit={Submit} className="regform" id="duel">
@@ -90,9 +95,9 @@ const Duel = (props) => {
         />
       </div>
       
-      <button type="submit" className="duel">
+     { buttonV ? <button type="submit" className="duel">
         Submit
-      </button>
+      </button> : <div>Please wait...</div>}
     </form>
   );
 };

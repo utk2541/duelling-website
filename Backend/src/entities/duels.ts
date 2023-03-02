@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { dproblem } from "./allProblems";
 @Entity()
 export class duels {
   @PrimaryGeneratedColumn()
@@ -14,7 +15,7 @@ export class duels {
   status: string;
 
   @Column("jsonb", { array: false })
-  problems: Array<{ contestId: string; index: string; name: string }>;
+  problems: Array<dproblem>;
 
   @Column()
   minRating: number;
