@@ -6,6 +6,7 @@
     "watch": "tsc -w",
     "test": "nodemon dist/server.js",
     "build": "npm install\n yarn install\n tsc --build"
+    
   },
   "author": "",
   "license": "ISC",
