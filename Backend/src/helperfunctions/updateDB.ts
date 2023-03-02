@@ -7,9 +7,9 @@ export const updateDB = async () => {
   const url = constants.url;
   const resProb = await cfapi(`${url}/problemset.problems`);
   const problems =
-    resProb && resProb.status == "OK" ? resProb.result.problems : [];
+    resProb && resProb.status == "OK" ? resProb.result.problems : undefined;
 
-  if (problems != []) {
+  if (problems) {
     let finalproblems: Array<allProblems> = new Array<allProblems>();
     problems.forEach((element : any) => {
       const problem = new allProblems();
