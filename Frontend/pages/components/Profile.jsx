@@ -11,11 +11,11 @@ const Profile = (props) => {
     <div className="container_p">
       <h1 className="header_p">
         <div className="image_p">
-          <Image src={Data.pfp} layout="fill" objectFit="contain" />
+          <Image src={Data?.pfp} layout="fill" objectFit="contain" />
         </div>
         <div id="pname">
           {" "}
-          <p>{Data.cfhandle}</p>{" "}
+          <p>{Data?.cfhandle}</p>{" "}
         </div>
       </h1>
       <div className="options">
@@ -37,7 +37,7 @@ const Profile = (props) => {
         </button>
       </div>
       {stats && <Stats Data={Data} />}
-      {duellist && <Duellist Data={Data} cfId={Data.cfhandle} socket = {socket}/>}
+      {duellist && <Duellist Data={Data} cfId={Data?.cfhandle} socket = {socket}/>}
     </div>
   );
 };
