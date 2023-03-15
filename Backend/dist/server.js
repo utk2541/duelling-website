@@ -20,6 +20,8 @@ const socket_io_1 = require("socket.io");
 const constants_1 = require("./constants");
 const validClaim_1 = require("./helperfunctions/validClaim");
 const allProblems_1 = require("./entities/allProblems");
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.config)();
 const main = async () => {
     const app = (0, express_1.default)();
     const server = (0, http_1.createServer)(app);

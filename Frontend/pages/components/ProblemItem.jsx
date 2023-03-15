@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 
 const ProblemItem = (props) => {
   let url = "https://codeforces.com/problemset/problem/";
-  const contestId = props.element.contestId;
-  const index = props.element.index;
-  const name = props.element.name;
-  const duelist = props.duelist;
+  const contestId = props.element?.contestId;
+  const index = props?.element?.index;
+  const name = props?.element?.name;
+  const duelist = props?.duelist;
   const [claimed, setClaim] = useState(false);
-  const socket = props.socket;
+  const socket = props?.socket;
   useEffect(()=>{
-    if(props.element?.solvedBy !== "none")
+    if(props?.element?.solvedBy !== "none")
       setClaim(true);
   },[props.element])
   
@@ -19,10 +19,9 @@ const ProblemItem = (props) => {
     console.log(duelist);
     if (socket) {
       socket.emit("update", {
-        room: props.room,
-        element: props.element,
+        room: props?.room,
+        element: props?.element,
         duelist: duelist,
-        room: props.room,
       });
     }
   };

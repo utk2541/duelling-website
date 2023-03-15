@@ -15,7 +15,8 @@ import { Server } from "socket.io";
 import { constants } from "./constants";
 import { validClaim } from "./helperfunctions/validClaim";
 import { dproblem ,problem } from "./entities/allProblems";
-
+import { config } from "dotenv"
+config();
 interface updateValue {
   element: problem;
   room: string;
