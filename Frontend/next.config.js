@@ -1,6 +1,6 @@
 /* @type {import('next').NextConfig} */
 const nextConfig = {
-  staticPageGenerationTimeout:0,
+  staticPageGenerationTimeout:10,
   reactStrictMode: true,
   images: {
     domains: ['userpic.codeforces.org'],
