@@ -46,15 +46,15 @@ const findproblems = async (query: duel) => {
       B = undefined;
     if (doneprobsA.length !== 0)
       A = doneprobsA.find((e) => {
-        return (
+       
           e.problem.index == prob.id && e.problem.contestId == prob.contestId
-        );
+        
       });
     if (doneprobsB.length !== 0)
       B = doneprobsB.find((e) => {
-        return (
+      
           e.problem.index == prob.id && e.problem.contestId == prob.contestId
-        );
+        
       });
 
     if (A == undefined && B == undefined) {
