@@ -1,3 +1,3 @@
 export const constants = {
-    url : "http://localhost:4000"
+    url : "https://duelling-website-backend.onrender.com"
 }
