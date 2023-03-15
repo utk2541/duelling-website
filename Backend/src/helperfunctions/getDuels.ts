@@ -4,7 +4,8 @@ export const getDuels = async (cfId: string) => {
   const duelrepo = Data.getRepository(duels);
   const [duellist, _] = await duelrepo.findAndCount({
     where: [
-      { duelistA: cfId, duelistB: cfId, status: "ACCEPTED" || "PENDING" },
+      { duelistA: cfId, status: "ACCEPTED" || "PENDING" },
+      { duelistB: cfId, status: "ACCEPTED" || "PENDING" },
     ],
   });
 
